@@ -18,7 +18,7 @@ class card_special extends StatelessWidget {
         },
         child: MouseRegion(
           cursor: SystemMouseCursors.basic,
-          onHover: ,
+          //onHover: return 0,
           child: Container(
               height: 140,
               width: 140,
