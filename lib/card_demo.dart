@@ -1,69 +1,69 @@
-//! Card
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-// ignore_for_file: prefer_const_constructors
+import 'package:sangsin/utils/app_styles.dart';
 
-import "package:flutter/material.dart";
-import "package:sangsin/utils/app_styles.dart";
+class SpecialCard extends StatelessWidget {
+  final IconData iconData;
+  final String labelText;
 
-class card_special extends StatelessWidget {
-  const card_special({super.key});
+  const SpecialCard({
+    Key? key,
+    required this.iconData,
+    required this.labelText,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: GestureDetector(
+      child: InkWell(
         onTap: () {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(const SnackBar(content: Text('Gesture Detected!')));
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Gesture Detected!')),
+          );
         },
         child: MouseRegion(
-          cursor: SystemMouseCursors.basic,
-          //onHover: return 0,
+          cursor: SystemMouseCursors.click,
           child: Container(
-              height: 140,
-              width: 140,
-              child: Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(13),
-                    side: BorderSide(
-                      color: AppTheme.accent,
-                      width: 1.5,
-                    )),
-                elevation: 10,
-                color: Color.fromARGB(255, 46, 46, 46),
-                child: Container(
-                    child: Column(
+            height: 140, // Adjusted height to accommodate input field
+            width: 140,
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(13),
+                side: BorderSide(
+                  color: AppTheme.accent,
+                  width: 1.5,
+                ),
+              ),
+              elevation: 10,
+              color: Color.fromARGB(255, 46, 46, 46),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Icon(
-                        IconData(
-                          0xeb93,
-                          fontFamily: 'MaterialIcons',
-                        ),
-                        color: AppTheme.accent,
-                        size: 55),
+                      iconData,
+                      color: AppTheme.accent,
+                      size: 55,
+                    ),
+                    SizedBox(
+                        height: 10), // Added space between icon and text field
                     Text(
-                      "รูปนิ้ว",
-                      // style: TextStyle(
-                      //     fontSize: 15,
-                      //     color: AppTheme.white,
-                      //     fontFamily: 'Hind',),
-
+                      labelText,
                       style: GoogleFonts.sarabun(
                         textStyle: TextStyle(
-                            color: AppTheme.white,
-                            letterSpacing: .5,
-                            fontSize: 13),
+                          color: AppTheme.white,
+                          letterSpacing: .5,
+                          fontSize: 13,
+                        ),
                       ),
                     ),
-                    // Text(
-                    //   'Identify\nPicture',
-                    //   style: GoogleFonts.ibmPlexSans(),
-                    // ),
                   ],
-                )),
-              )),
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );

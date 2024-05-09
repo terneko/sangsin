@@ -31,16 +31,27 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SizedBox(
             height: 20,
+            child: Container(
+                //  color: AppTheme.baby_blue,
+                ),
           ),
           Row(children: [
             SizedBox(
               width: 20,
             ),
-            const card_special(),
+            SpecialCard(
+                iconData: IconData(
+                  0xeb93,
+                  fontFamily: 'MaterialIcons',
+                ),
+                labelText: 'รูปนิ้ว'),
             SizedBox(
               width: 20,
+              child: Container(
+                color: AppTheme.baby_blue,
+              ),
             ),
-            const card_special(),
+
             // const card_special(),
             // const card_special(),
           ]),
@@ -51,11 +62,11 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               width: 20,
             ),
-            const card_special(),
+            // const card_special(),
             SizedBox(
               width: 20,
             ),
-            const card_special(),
+            // const card_special(),
             // const card_special(),
             // const card_special(),
           ])
