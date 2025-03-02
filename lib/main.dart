@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import "package:sangsin/screens/home_screen.dart";
+import 'package:sangsin/screens/home_screen.dart';
 import 'package:sangsin/screens/personal_photo.dart';
+
+import 'imagePicker.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,12 +11,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Photo(),
+      initialRoute: '/', // Set the initial route
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/photo': (context) => const Photo(), // Fixed the extra '/'
+        '/imagePicker': (context) =>
+            const ImagePickerPage(), // Fixed the extra '/'
+      },
     );
   }
 }

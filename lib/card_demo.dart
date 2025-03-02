@@ -5,11 +5,13 @@ import 'package:sangsin/utils/app_styles.dart';
 class SpecialCard extends StatelessWidget {
   final IconData iconData;
   final String labelText;
+  final String routePage;
 
   const SpecialCard({
     Key? key,
     required this.iconData,
     required this.labelText,
+    required this.routePage,
   }) : super(key: key);
 
   @override
@@ -17,8 +19,9 @@ class SpecialCard extends StatelessWidget {
     return Center(
       child: InkWell(
         onTap: () {
+          Navigator.pushNamed(context, routePage);
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Gesture Detected!')),
+            const SnackBar(content: Text('Pressed.')),
           );
         },
         child: MouseRegion(

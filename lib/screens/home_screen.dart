@@ -40,11 +40,22 @@ class _HomeScreenState extends State<HomeScreen> {
               width: 20,
             ),
             SpecialCard(
-                iconData: IconData(
-                  0xeb93,
-                  fontFamily: 'MaterialIcons',
-                ),
-                labelText: 'รูปนิ้ว'),
+              iconData: IconData(
+                0xeb93,
+                fontFamily: 'MaterialIcons',
+              ),
+              labelText: 'ID Photo',
+              routePage: '/photo',
+            ),
+            SpecialCard(
+              iconData: IconData(
+                0xeb93,
+                fontFamily: 'MaterialIcons',
+              ),
+              labelText: 'Image Picker',
+              routePage: '/imagePicker',
+            ),
+
             SizedBox(
               width: 20,
               child: Container(
